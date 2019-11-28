@@ -17,7 +17,6 @@ local.properties
 build/
 .DS_Store
 
-web
 
 # External tool builders
 .externalToolBuilders/
