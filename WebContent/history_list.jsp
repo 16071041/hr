@@ -79,8 +79,8 @@
                             </td>
                             <td><%=history.getStatus() %>
                             </td>
-                            <td><a href="<%=path %>/history/<%=history.getId() %>/detail.do" class="btn btn-info">查看</a>&nbsp;&nbsp;
-                                <a href="<%=path %>/history/<%=history.getId() %>/toUpdate.do" class="btn btn-primary">修改</a>
+                            <td><a href="<%=path %>/HistoryServlet?method=findHistoryById&id=<%=history.getId() %>" class="btn btn-info">查看</a>&nbsp;&nbsp;
+                                <a href="<%=path %>/HistoryServlet/<%=history.getId() %>/toUpdate.do" class="btn btn-primary">修改</a>
                         </tr>
                         <%
                             }

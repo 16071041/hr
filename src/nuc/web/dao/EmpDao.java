@@ -150,8 +150,7 @@ public class EmpDao {
 		conn = C3P0Conn.getConnection();
 		String sql = "update employee set name=?,password=?,gender=?,birthday=?,telephone=?,email=?,address=?,education=?"
 				+ "  where id=?";
-		
-		
+
 		try {
 			i = qr.update(conn,sql,emp.getName(),emp.getPassword(),emp.getGender(),emp.getBirthday(),emp.getTelephone(),
 					emp.getEmail(),emp.getAddress(),emp.getEducation(),emp.getId());			
