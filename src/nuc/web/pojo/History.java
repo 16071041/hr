@@ -27,6 +27,25 @@ public class History {
     private String home;
     private String notes;
 
+    public History() {
+
+    }
+
+
+    public History(int id, String name, String gender, String birthday, String telephone, String email, String address,
+                   String education) {
+        this();
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.telephone = telephone;
+        this.email = email;
+        this.address = address;
+        this.education = education;
+    }
+
+
     public int getId() {
         return id;
     }
@@ -162,7 +181,6 @@ public class History {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-
 
 
 }

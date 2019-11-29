@@ -33,7 +33,7 @@
 					</div>
 					<div class="ibox-content">
 						<% History history = (History)request.getAttribute("history"); %>
-						<form method="post" class="form-horizontal" id="commentForm" action="<%=path %>/retire/<%=history.getId() %>/update.do">
+						<form method="post" class="form-horizontal" id="commentForm" action="<%=path %>/HistoryServlet?method=doUpdateHistoryById&id=<%=history.getId() %>">
 							<div class="form-group">
 								<label class="col-sm-3 control-label">工号</label>
 								<div class="col-sm-7">
@@ -73,8 +73,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">出生年月</label>
 								<div class="col-sm-7">
-									<% String birthday = MTimeUtil.dateFormat(history.getBirthday()); %>
-									<input type="date" class="form-control" name="date" value="<%=birthday %>">
+									<input type="date" class="form-control" name="date" value="<%=history.getBirthday() %>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -104,13 +103,13 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">部门</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="" value="<%=history.getDepartment().getName() %>" readonly="readonly">
+									<input type="text" class="form-control" name="" value="<%=history.getDepartment_number() %>" readonly="readonly">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">职称</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="" value="<%=history.getPosition().getName() %>" readonly="readonly">
+									<input type="text" class="form-control" name="" value="<%=history.getPosition_number()%>" readonly="readonly">
 								</div>
 							</div>
 							<div class="form-group">

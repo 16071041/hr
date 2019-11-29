@@ -251,9 +251,10 @@ public class EmpServlet extends HttpServlet {
     }
 
     protected void findHistorylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HistoryDao dao = new HistoryDao();
-		List<History> list = dao.selectHistoryList();
-		request.setAttribute("hList", list);
+        HistoryDao dao = new HistoryDao();
+        List<History> list = dao.selectHistoryList();
+        System.out.printf("list len is:" + list.size());
+        request.setAttribute("hList", list);
         request.getRequestDispatcher("/history_list.jsp").forward(request, response);
     }
 }

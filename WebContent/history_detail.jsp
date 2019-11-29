@@ -139,7 +139,7 @@
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-8">
-                                <a href="<%=path %>/HistoryServlet?method=toUpdateHistory?id=/<%=history.getId() %>"
+                                <a href="<%=path %>/HistoryServlet?method=toUpdateHistory&id=<%=history.getId() %>"
                                    class="btn btn-primary">修&nbsp;&nbsp;改</a>&nbsp;&nbsp;
                                 <a href="<%=path %>/EmpServlet?method=findHistorylist" class="btn btn-info">返&nbsp;&nbsp;回</a>
                             </div>

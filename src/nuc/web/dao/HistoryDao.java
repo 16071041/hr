@@ -1,6 +1,5 @@
 package nuc.web.dao;
 
-import nuc.web.pojo.Employee;
 import nuc.web.pojo.History;
 import nuc.web.tools.C3P0Conn;
 import org.apache.commons.dbutils.QueryRunner;
@@ -65,6 +64,25 @@ public class HistoryDao {
         }
 
         return his;
+    }
 
+    public int updateHistory(History his) {
+        int i = 0;
+
+        conn = C3P0Conn.getConnection();
+        String sql = "update history set name=?,gender=?,birthday=?,telephone=?,email=?,address=?,education=?"
+                + "  where id=?";
+        try {
+            i = qr.update(conn, sql, his.getName(), his.getGender(), his.getBirthday(), his.getTelephone(),
+                    his.getEmail(), his.getAddress(), his.getEducation(), his.getId());
+            System.out.println(i);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            C3P0Conn.closeConnction(conn);
+        }
+
+        return i;
     }
 }
