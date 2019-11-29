@@ -138,7 +138,7 @@
 						<ul class="nav nav-second-level">
 							<li><a class="J_menuItem" href="<%=path %>/DptServlet?method=findDptList">部门管理</a>
 							</li>
-							<li><a class="J_menuItem" href="<%=path %>/position/listPage.do?pageNo=1">职称管理</a>
+							<li><a class="J_menuItem" href="<%=path %>/PstServlet?method=findPstList">职称管理</a>
 							</li>
 						</ul>
 					</li>

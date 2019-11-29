@@ -6,32 +6,42 @@ import java.io.Serializable;
 /**
  * 职称表
  *
- * @author ZHT
  */
 public class Position {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
-    private Integer positionNumber;
+    private int id;
+    private int position_number;
     private String name;
     private String level;
     private String notes;
 
-    public Integer getId() {
+    public Position() {
+    }
+
+    public Position(int id, int position_number, String name, String level, String notes) {
+        this.id = id;
+        this.position_number = position_number;
+        this.name = name;
+        this.level = level;
+        this.notes = notes;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getPositionNumber() {
-        return positionNumber;
+    public int getPosition_number() {
+        return position_number;
     }
 
-    public void setPositionNumber(Integer positionNumber) {
-        this.positionNumber = positionNumber;
+    public void setPosition_number(int position_number) {
+        this.position_number = position_number;
     }
 
     public String getName() {
@@ -58,5 +68,14 @@ public class Position {
         this.level = level;
     }
 
-
+    @Override
+    public String toString() {
+        return "Position{" +
+                "id=" + id +
+                ", position_number=" + position_number +
+                ", name='" + name + '\'' +
+                ", level='" + level + '\'' +
+                ", notes='" + notes + '\'' +
+                '}';
+    }
 }
