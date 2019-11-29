@@ -1,5 +1,9 @@
 package nuc.web.pojo;
 
+/**
+ *  员工表
+ */
+
 public class Employee {
 
     private int id;
