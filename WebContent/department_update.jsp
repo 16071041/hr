@@ -48,13 +48,13 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">部门名称</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="name" value="<%=department.getName() %>" minlength="2" required>
+                                <input type="text" class="form-control" name="name" value="<%=department.getName() %>"  required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">部门领导</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="manager" value="<%=department.getManager() %>" minlength="4" required>
+                                <input type="text" class="form-control" name="manager" value="<%=department.getManager() %>"  required>
                             </div>
                         </div>
                         <div class="form-group">
