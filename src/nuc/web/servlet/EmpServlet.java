@@ -250,6 +250,13 @@ public class EmpServlet extends HttpServlet {
 
     }
 
+    /**
+     * 查询员工档案列表
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void findHistorylist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HistoryDao dao = new HistoryDao();
         List<History> list = dao.selectHistoryList();

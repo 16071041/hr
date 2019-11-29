@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="nuc.web.pojo.History" %>
+<%@ page import="nuc.web.pojo.Attendance" %>
+<%@ page import="nuc.web.tools.MTimeUtil" %>
 <% String path = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR医院 - 员工档案列表</title>
+    <title>HR医院 - 员工考勤列表</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -29,7 +30,7 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>员工档案列表</h5>
+                    <h5>员工考勤列表</h5>
                 </div>
                 <div class="ibox-content">
                     <table class="table table-striped table-bordered table-hover dataTables-example">
@@ -37,52 +38,44 @@
                         <tr>
                             <th>序号</th>
                             <th>工号</th>
-                            <th>姓名</th>
-                            <th>性别</th>
-                            <th>电话</th>
-                            <th>部门名称</th>
-                            <th>职称</th>
-                            <th>入职时间</th>
-                            <th>离休时间</th>
-                            <th width="60px">类别</th>
-                            <th>管理</th>
+                            <th>日期</th>
+                            <th>时间</th>
+                            <th>上班签到时间</th>
+                            <th>签到类别</th>
+                            <th>下班签到时间</th>
+                            <th>签到类别</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%
-                            List<History> list = (List<History>) request.getAttribute("hList");
+                            List<Attendance> list = (List<Attendance>) request.getAttribute("aList");
                             int index = 1;
-                            for (History history : list) {
+                            for (Attendance attendance : list) {
                         %>
                         <tr class="gradeA">
                             <td><%=index++ %>
                             </td>
-                            <td><%=history.getEmployee_number() %>
-                            </td>
-                            <td><%=history.getName() %>
-                            </td>
-                            <td><%=history.getGender() %>
-                            </td>
-                            <td><%=history.getTelephone() %>
-                            </td>
-                            <td><%=history.getDepartment_number() %>
-                            </td>
-                            <td><%=history.getPosition_number() %>
+                            <td><%=attendance.getEmployee_number() %>
                             </td>
                             <%
-                                String outtime = history.getOut_time();
-                                if (outtime == null) outtime = "";
+                                String day = attendance.getDay();
+                                String startTime = MTimeUtil.timeFormat(attendance.getStart_time());
+                                if (startTime == null) startTime = "";
+                                String endTime = MTimeUtil.timeFormat(attendance.getEnd_time());
+                                if (endTime == null) endTime = "";
                             %>
-                            <td><%=history.getIn_time() %>
+                            <td><%=day %>
                             </td>
-                            <td><%=outtime %>
+                            <td><%=attendance.getTime_type() %>
                             </td>
-                            <td><%=history.getStatus() %>
+                            <td><%=startTime %>
                             </td>
-                            <td><a href="<%=path %>/HistoryServlet?method=findHistoryById&id=<%=history.getId() %>"
-                                   class="btn btn-info">查看</a>&nbsp;&nbsp;
-                                <a href="<%=path %>/HistoryServlet?method=toUpdateHistory&id=<%=history.getId() %>"
-                                   class="btn btn-primary">修改</a>
+                            <td><%=attendance.getStart_type() %>
+                            </td>
+                            <td><%=endTime %>
+                            </td>
+                            <td><%=attendance.getEnd_type() %>
+                            </td>
                         </tr>
                         <%
                             }

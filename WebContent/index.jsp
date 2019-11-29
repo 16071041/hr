@@ -110,9 +110,9 @@
 							<span class="fa arrow"></span>
 						</a>
 						<ul class="nav nav-second-level">
-							<li><a class="J_menuItem" href="<%=path %>/attendance/list.do">考勤管理</a>
+							<li><a class="J_menuItem" href="<%=path %>/AttendanceServlet?method=findAttendanceList">考勤管理</a>
 							</li>
-							<li><a class="J_menuItem" href="<%=path %>/overtime/listPage.do?pageNo=1">加班管理</a>
+							<li><a class="J_menuItem" href="<%=path %>/OvertimeServlet?method=findOvertimeList">加班管理</a>
 							</li>
 						</ul></li>
 					<li><a href="mailbox.html">
@@ -121,11 +121,11 @@
 							<span class="fa arrow"></span>
 						</a>
 						<ul class="nav nav-second-level">
-							<li><a class="J_menuItem" href="<%=path %>/leave/notlist.do">未批准列表</a>
+							<li><a class="J_menuItem" href="<%=path %>/LeaServlet?method=noLicenceList">未批准列表</a>
 							</li>
-							<li><a class="J_menuItem" href="<%=path %>/leave/yeslist.do">已批准列表</a>
+							<li><a class="J_menuItem" href="<%=path %>/LeaServlet?method=hasLicenceList">已批准列表</a>
 							</li>
-							<li><a class="J_menuItem" href="<%=path %>/leave/list.do">请假记录</a>
+							<li><a class="J_menuItem" href="<%=path %>/LeaServlet?method=findLeaList">请假记录</a>
 							</li>
 						</ul></li>
 					<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
