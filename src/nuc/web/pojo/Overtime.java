@@ -19,6 +19,18 @@ public class Overtime {
 
     }
 
+    public Overtime(int department_number, int employee_number, String day) {
+        this.department_number = department_number;
+        this.employee_number = employee_number;
+        this.day = day;
+    }
+
+    public Overtime(int id, int department_number, int employee_number, String day) {
+        this.id = id;
+        this.department_number = department_number;
+        this.employee_number = employee_number;
+        this.day = day;
+    }
 
     public int getId() {
         return id;

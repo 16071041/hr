@@ -1,8 +1,5 @@
 package nuc.web.pojo;
 
-
-import java.io.Serializable;
-
 /**
  * 部门表
  */

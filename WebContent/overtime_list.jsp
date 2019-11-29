@@ -34,7 +34,7 @@
                 </div>
                 <div class="ibox-content">
                     <div style="margin-bottom: 8px">
-                        <a href="<%=path %>/overtime/toAdd.do" class="btn btn-success">安排加班</a>
+                        <a href="<%=path %>/OvertimeServlet?method=toAddOvertime" class="btn btn-success">安排加班</a>
                     </div>
                     <table class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
@@ -61,7 +61,7 @@
                             </td>
                             <td><%=overtime.getDay() %>
                             </td>
-                            <td><a href="<%=path %>/overtime/<%=overtime.getId() %>/toUpdate.do"
+                            <td><a href="<%=path %>/OvertimeServlet?method=toUpdateOvertime&id=<%=overtime.getId() %>"
                                    class="btn btn-primary">修改</a>&nbsp;&nbsp;
                                 <a onclick="del(<%=overtime.getId() %>)" class="btn btn-danger delete">删除</a></td>
                         </tr>
@@ -121,7 +121,7 @@
             shade: false //不显示遮罩
         }, function () {
             parent.layer.msg('删除成功！', {icon: 1});
-            location.href = "/" + id + "/delete.do";
+            location.href = "/OvertimeServlet?method=deleteOvertime&id=" + id;
         });
     }
 </script>
