@@ -177,12 +177,20 @@ public class EmpServlet extends HttpServlet {
      * @throws IOException
      */
     protected void findEmpById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("findEmpBy id");
 
         String sid = request.getParameter("id");
-        int id = Integer.parseInt(sid);
+        System.out.println("findEmp id :" + sid);
+        HttpSession session = request.getSession();
         EmpDao dao = new EmpDao();
-        Employee emp = dao.selectEmpById(id);
-
+        Employee emp = null;
+        if (sid == null) {
+            emp = (Employee) session.getAttribute("emp");
+            System.out.println("get session emp : " + emp);
+        } else {
+            int id = Integer.parseInt(sid);
+            emp = dao.selectEmpById(id);
+        }
         System.out.println("查看成功。");
         if (emp != null) {
             request.setAttribute("emp", emp);
@@ -204,10 +212,16 @@ public class EmpServlet extends HttpServlet {
     protected void toUpdateEmp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String sid = request.getParameter("id");
-        int id = Integer.parseInt(sid);
-
+        HttpSession httpSession = request.getSession();
         EmpDao dao = new EmpDao();
-        Employee emp = dao.selectEmpById(id);
+        Employee emp = null;
+        if (sid == null) {
+            emp = (Employee) httpSession.getAttribute("emp");
+        } else {
+            int id = Integer.parseInt(sid);
+            emp = dao.selectEmpById(id);
+
+        }
 
         if (emp != null) {
             request.setAttribute("emp", emp);
@@ -252,6 +266,7 @@ public class EmpServlet extends HttpServlet {
 
     /**
      * 查询员工档案列表
+     *
      * @param request
      * @param response
      * @throws ServletException
